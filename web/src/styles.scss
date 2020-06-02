@@ -1,0 +1,248 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$area-primary: mat-palette($mat-indigo);
+$area-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$area-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$area-theme: mat-light-theme($area-primary, $area-accent, $area-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($area-theme);
+
+
+/**  GLOBAL FONT  **/
+@font-face {
+    font-family: 'Avenir';
+    src: url('./assets/fonts/bold.ttf');
+}
+
+* {
+    font-family: 'Avenir', sans-serif !important;
+}
+
+/**  CUSTOM WHITE BUTTON  **/
+.btn-white {
+    background-image: none !important;
+    border: none !important;
+};
+
+.btn-white {
+    color: #212529;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.btn-white:hover {
+    color: #212529;
+    background-color: #ececec;
+    border-color: #e6e5e5;
+}
+
+.btn-white:focus, .btn-white.focus {
+    color: #212529;
+    background-color: #ececec;
+    border-color: #e6e5e5;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+}
+
+.btn-white.disabled, .btn-white:disabled {
+    color: #212529;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.btn-white:not(:disabled):not(.disabled):active, .btn-white:not(:disabled):not(.disabled).active,
+.show > .btn-white.dropdown-toggle {
+    color: #212529;
+    background-color: #e6e5e5;
+    border-color: #dfdfdf;
+}
+
+.btn-white:not(:disabled):not(.disabled):active:focus, .btn-white:not(:disabled):not(.disabled).active:focus,
+.show > .btn-white.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+}
+
+/**  CUSTOM BLACK BUTTON  **/
+.btn-black {
+    color: #ffffff !important;
+    border-color: #000000 !important;
+    background-image: none !important;
+    background-color: black;
+    color: white;
+};
+
+.btn-black:hover {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+};
+
+.btn-black:focus, .btn-black.focus {
+    color: #fff;
+    background-color: #000000;
+    border-color: #000000 !important;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+};
+
+.btn-black:not(:disabled):not(.disabled):active, .btn-black:not(:disabled):not(.disabled).active,
+.show > .btn-black.dropdown-toggle {
+  color: #fff;
+  background-color: #000000;
+  border-color: #000000;
+};
+
+.btn-black:not(:disabled):not(.disabled):active:focus, .btn-black:not(:disabled):not(.disabled).active:focus,
+.show > .btn-black.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+};
+
+/**  CUSTOM BLUE BUTTON  **/
+.btn-blue {
+    color: #ffffff !important;
+    border-color: #3a65ac !important;
+    background-image: none !important;
+    background-color: #3a65ac;
+    color: white;
+};
+
+.btn-blue:hover {
+    color: #3a65ac !important;
+    background-color: #ffffff !important;
+    border-color: #3a65ac !important;
+};
+
+.btn-blue:focus, .btn-blue.focus {
+    color: #fff;
+    background-color: #3a65ac;
+    border-color: #3a65ac !important;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+};
+
+.btn-blue:not(:disabled):not(.disabled):active, .btn-blue:not(:disabled):not(.disabled).active,
+.show > .btn-blue.dropdown-toggle {
+  color: #fff;
+  background-color: #3a65ac;
+  border-color: #3a65ac;
+};
+
+.btn-blue:not(:disabled):not(.disabled):active:focus, .btn-blue:not(:disabled):not(.disabled).active:focus,
+.show > .btn-blue.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+};
+
+/**  CUSTOM RED BUTTON  **/
+.btn-red {
+    color: #ffffff !important;
+    border-color: #d7220e !important;
+    background-image: none !important;
+    background-color: #d7220e;
+    color: white;
+};
+
+.btn-red:hover {
+    color: #d7220e !important;
+    background-color: #ffffff !important;
+    border-color: #d7220e !important;
+};
+
+.btn-red:focus, .btn-red.focus {
+    color: #fff;
+    background-color: #d7220e;
+    border-color: #d7220e !important;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+};
+
+.btn-red:not(:disabled):not(.disabled):active, .btn-red:not(:disabled):not(.disabled).active,
+.show > .btn-red.dropdown-toggle {
+  color: #fff;
+  background-color: #d7220e;
+  border-color: #d7220e;
+};
+
+.btn-red:not(:disabled):not(.disabled):active:focus, .btn-red:not(:disabled):not(.disabled).active:focus,
+.show > .btn-red.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+};
+
+/**  CUSTOM NO BG BUTTON  **/
+.btn-no-bg {
+    background-image: none !important;
+    border: none !important;
+};
+
+.btn-no-bg {
+    color: #212529;
+    background: none;
+    // border-color: ;
+}
+
+.btn-no-bg:hover {
+    color: #212529;
+    background: none;
+}
+
+.btn-no-bg:focus, .btn-no-bg.focus {
+    color: #212529;
+    background: none;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+}
+
+.btn-no-bg.disabled, .btn-no-bg:disabled {
+    color: #212529;
+    background: none;
+    border-color: #fff;
+}
+
+.btn-no-bg:not(:disabled):not(.disabled):active, .btn-no-bg:not(:disabled):not(.disabled).active,
+.show > .btn-no-bg.dropdown-toggle {
+    color: #212529;
+    background: none;
+    border-color: #dfdfdf;
+}
+
+.btn-no-bg:not(:disabled):not(.disabled):active:focus, .btn-no-bg:not(:disabled):not(.disabled).active:focus,
+.show > .btn-no-bg.dropdown-toggle:focus {
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(222, 222, 223, 0.5);
+}
+
+
+/** Fix the input shadow (Red to black) **/
+.form-control:focus {
+    color: #444;
+    background-color: #fff;
+    border-color: black;
+    outline: 0;
+    -webkit-box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+            box-shadow: 0 0 0 0.2rem rgba(39, 33, 32, 0.5);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Avenir', "Helvetica Neue", sans-serif; }

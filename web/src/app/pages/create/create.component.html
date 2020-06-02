@@ -1,0 +1,118 @@
+<div *ngIf="currentState === ''">
+    <div class="container" style="text-align: center;">
+        <p class="title">
+            Create your own
+        </p>
+    </div>
+
+    <div style="text-align: center; padding-top: 40px;">
+        <p class="sub-title">
+            If <span class="pointer" (click)="setState('if')">
+                    <i class="fas fa-plus-square"></i>
+                        <span style="color: #999 !important;">This</span>
+            </span> Then That
+        </p>
+    </div>
+</div>
+<div *ngIf="currentState === 'IF'">
+    <div class="container" style="text-align: center; background-color: white !important; color: black !important;">
+        <p class="title" style="color: black !important">
+            Choose a service
+        </p>
+    </div>
+    <div fxLayout="rows" fxLayoutAlign="start center" style="margin-bottom: 20px;">
+        <li *ngFor="let action of this.builder.actions; index as i; trackBy: trackByFn">
+            <app-action-card (click)="chooseAction(i)"
+                [title]="action.name"
+                [url]="action.image"
+                [id]="action.name"
+                [color]="action.color"
+            ></app-action-card>
+        </li>
+    </div>
+</div>
+<div *ngIf="currentState === 'IF_CHOOSE'">
+    <div class="container" style="text-align: center; background-color: white !important; color: black !important;">
+        <p class="title" style="color: black !important">
+            Choose trigger
+        </p>
+    </div>
+    <div fxLayout="rows" fxLayoutAlign="start center" style="margin-bottom: 20px;">
+        <li *ngFor="let trigger of this.builder.actionForm; index as i; trackBy: trackByFn">
+            <app-trigger-card (click)="chooseActionTrigger(i)"
+                [title]="trigger.name"
+                [description]="trigger.description"
+                [id]="trigger.slugName"
+                [color]="this.builder.currentAction.color"
+            ></app-trigger-card>
+        </li>
+    </div>
+</div>
+<div *ngIf="currentState === 'IF_DATA'">
+    <div class="container" style="text-align: center; background-color: white !important; color: black !important;">
+        <p class="title" style="color: black !important">
+            Complete trigger fields
+        </p>
+    </div>
+    <div *ngIf="this.builder.actionForm !== null">
+        <div fxLayout="rows" fxLayoutAlign="center center" style="margin-bottom: 20px;">
+            <app-form-card
+                [form]="this.builder.actionForm[this.builder.actionTriggerId]"
+                [formResponse]="this.builder.actionFormResponses"
+            ></app-form-card>
+        </div>
+        <button [disabled]="!canValidate()" style="margin:auto; display:block;" (click)="setState('else')" type="button" [className]="!canValidate() ? 'btn btn-black' : 'btn btn-black disabled'"><b>Next</b></button>
+    </div>
+</div>
+
+<div *ngIf="currentState === 'ELSE'">
+    <div class="container" style="text-align: center; background-color: white !important; color: black !important;">
+        <p class="title" style="color: black !important">
+            Choose action service
+        </p>
+    </div>
+    <div fxLayout="rows" fxLayoutAlign="start center" style="margin-bottom: 20px;">
+        <li *ngFor="let reaction of this.builder.reactions; index as i; trackBy: trackByFn">
+            <app-action-card (click)="chooseReaction(i)"
+                [title]="reaction.name"
+                [url]="reaction.image"
+                [id]="reaction.name"
+                [color]="reaction.color"
+            ></app-action-card>
+        </li>
+    </div>
+</div>
+<div *ngIf="currentState === 'ELSE_CHOOSE'">
+    <div class="container" style="text-align: center; background-color: white !important; color: black !important;">
+        <p class="title" style="color: black !important">
+            Choose action service
+        </p>
+    </div>
+    <div fxLayout="rows" fxLayoutAlign="start center" style="margin-bottom: 20px;">
+        <li *ngFor="let trigger of this.builder.reactionForm; index as i; trackBy: trackByFn">
+            <app-trigger-card (click)="chooseReactionTrigger(i)"
+                [title]="trigger.name"
+                [description]="trigger.description"
+                [id]="trigger.slugName"
+                [color]="this.builder.currentReaction.color"
+            ></app-trigger-card>
+        </li>
+    </div>
+</div>
+
+<div *ngIf="currentState === 'ELSE_DATA'">
+    <div class="container" style="text-align: center; background-color: white !important; color: black !important;">
+        <p class="title" style="color: black !important">
+            Complete trigger fields
+        </p>
+    </div>
+    <div *ngIf="this.builder.reactionForm !== null">
+        <div fxLayout="rows" fxLayoutAlign="center center" style="margin-bottom: 20px;">
+            <app-form-card
+                [form]="this.builder.reactionForm[this.builder.reactionTriggerId]"
+                [formResponse]="this.builder.reactionFormResponses"
+            ></app-form-card>
+        </div>
+        <button [disabled]="!canValidate()" style="margin:auto; display:block;" (click)="sendData()" type="button" [className]="!canValidate() ? 'btn btn-black' : 'btn btn-black disabled'"><b>Next</b></button>
+    </div>
+</div>

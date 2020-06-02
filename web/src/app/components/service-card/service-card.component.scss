@@ -1,0 +1,72 @@
+.container {
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+.text-card {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white !important;
+    background-position: center center;
+}
+
+.card {
+    border-radius: 0.9em;
+    box-shadow: 0 1.5px 6px 0 rgba(0,0,0,0.24);
+    background-color: rgb(36, 104, 255);
+    width: 45em;
+    height: 6em;
+    // padding: 2em;
+}
+
+.icon {
+    width: 2.81em !important;
+    height: 2.81em !important;
+    // border-radius: 6.5em;
+    // border: 0.1em solid
+    // #fff;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 2em;//xx-large;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.sub-title {
+    font-size: 1.3em;//xx-large;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #332e2e;
+}
+
+.author {
+    position: absolute;
+    bottom: -12px;
+    right: 10px;
+    font-size: 0.9em;
+    font-weight: 450;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #332e2e;
+}
+
+.settings {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.dropdown-toggle::after {
+    content: none;
+}

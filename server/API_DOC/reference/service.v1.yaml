@@ -1,0 +1,388 @@
+openapi: 3.0.0
+info:
+  title: Service
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /subscribe:
+    put:
+      summary: ''
+      operationId: put-subscribe
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  text:
+                    type: string
+                required:
+                  - code
+                  - text
+              examples:
+                Success:
+                  value:
+                    code: '00'
+                    text: Area Was added to account
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  text:
+                    type: string
+              examples:
+                Incorrect Authorization token:
+                  value:
+                    code: '02'
+                    text: Wrong Credentials
+        '500':
+          description: |-
+            Internal Server Error
+
+            May occure on Firebase Error, Service Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  text:
+                    type: string
+              examples:
+                Firebase Error:
+                  value:
+                    code: '00'
+                    text: Server Error
+                Service Error:
+                  value:
+                    code: '00'
+                    text: Server Error
+      description: Add an Area to a User.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+          description: Firebase User JWT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                actionName:
+                  type: string
+                actionData:
+                  type: object
+                reactionName:
+                  type: string
+                reactionData:
+                  type: object
+              required:
+                - actionName
+                - actionData
+                - reactionName
+                - reactionData
+            examples:
+              example-1: {}
+  '/reactions/{name}':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+        description: Name of the service
+    get:
+      summary: View Reactions for a Service
+      tags: []
+      responses:
+        '200':
+          description: Succesfully recovered all the reactions of a service
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      reactions:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            description:
+                              type: string
+                            form:
+                              type: object
+                              properties:
+                                selectionBox:
+                                  type: object
+                                  properties:
+                                    title:
+                                      type: string
+                                    values:
+                                      type: array
+                                      items:
+                                        type: string
+                  text:
+                    type: string
+                  code:
+                    type: string
+                required:
+                  - data
+                  - text
+                  - code
+              examples:
+                Reactions for Mail Service:
+                  value:
+                    code: '00'
+                    text: Reactions for Mail Service
+                    data:
+                      reactions:
+                        - slugName: SendMail
+                          name: SendMail
+                          description: SendMail Action
+                          form:
+                            - input:
+                                name: email
+                                title: Email
+                                regex: "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+                            - input:
+                                name: title
+                                title: Title
+                                regex: null
+                            - input:
+                                name: content
+                                title: Content
+                                regex: null
+      operationId: get-actions-name
+      description: Endpoint to get all the `Reactions` of a Service.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorization
+          required: true
+          description: Firebase User JWT
+  '/actions/{name}':
+    parameters:
+      - schema:
+          type: string
+        name: name
+        in: path
+        required: true
+        description: Name of the Service
+    get:
+      summary: View Actions for a Service
+      tags: []
+      responses:
+        '200':
+          description: Succesfully recovered all the actions of a service
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  text:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      actions:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            description:
+                              type: string
+                            form:
+                              type: object
+                              properties:
+                                selectionBox:
+                                  type: object
+                                  properties:
+                                    title:
+                                      type: string
+                                    values:
+                                      type: array
+                                      items:
+                                        type: string
+              examples:
+                Actions For Time Service:
+                  value:
+                    code: '00'
+                    text: Actions for Time Service
+                    data:
+                      actions:
+                        - slugName: EveryDayAt
+                          name: Every Day At
+                          description: This Trigger fires every single day at a specific time set by you.
+                          form:
+                            - selectionBox:
+                                name: hour
+                                title: Time
+                                values:
+                                  - '00'
+                                  - '01'
+                                  - '02'
+                                  - '03'
+                                  - '04'
+                                  - '05'
+                                  - '06'
+                                  - '07'
+                                  - 8
+                                  - 9
+                                  - '10'
+                                  - '11'
+                                  - '12'
+                                  - '13'
+                                  - '14'
+                                  - '15'
+                                  - '16'
+                                  - '17'
+                                  - '18'
+                                  - '19'
+                                  - '20'
+                                  - '21'
+                                  - '22'
+                                  - '23'
+                            - selectionBox:
+                                name: minute
+                                title: ''
+                                values:
+                                  - '00'
+                                  - '15'
+                                  - '30'
+                                  - '45'
+                        - slugName: EveryHourAt
+                          name: Every hour at
+                          description: 'This Trigger fires once an hour at :00, :15, :30, or :45 minutes past the hour.'
+                          form:
+                            - selectionBox:
+                                name: minute
+                                title: Minutes past the hour
+                                values:
+                                  - '00'
+                                  - '15'
+                                  - '30'
+                                  - '45'
+        '':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  code:
+                    type: string
+                  text:
+                    type: string
+                  data:
+                    type: object
+                    properties:
+                      actions:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            slugName:
+                              type: string
+                            description:
+                              type: string
+                            form:
+                              type: 'null'
+              examples:
+                Example:
+                  value:
+                    code: '00'
+                    text: Actions for Time Service
+                    data:
+                      actions:
+                        - slugName: EveryDayAt
+                          name: Every Day At
+                          description: This Trigger fires every single day at a specific time set by you.
+                          form:
+                            - selectionBox:
+                                name: hour
+                                title: Time
+                                values:
+                                  - '00'
+                                  - '01'
+                                  - '02'
+                                  - '03'
+                                  - '04'
+                                  - '05'
+                                  - '06'
+                                  - '07'
+                                  - 8
+                                  - 9
+                                  - '10'
+                                  - '11'
+                                  - '12'
+                                  - '13'
+                                  - '14'
+                                  - '15'
+                                  - '16'
+                                  - '17'
+                                  - '18'
+                                  - '19'
+                                  - '20'
+                                  - '21'
+                                  - '22'
+                                  - '23'
+                            - selectionBox:
+                                name: minute
+                                title: ''
+                                values:
+                                  - '00'
+                                  - '15'
+                                  - '30'
+                                  - '45'
+                        - slugName: EveryHourAt
+                          name: Every hour at
+                          description: 'This Trigger fires once an hour at :00, :15, :30, or :45 minutes past the hour.'
+                          form:
+                            - selectionBox:
+                                name: minute
+                                title: Minutes past the hour
+                                values:
+                                  - '00'
+                                  - '15'
+                                  - '30'
+                                  - '45'
+          description: |-
+            Successfully Recovered.
+
+            If the services doesn't exist, il will not return a error 404, it will just show no actions.
+      operationId: get-reactions-name
+      description: Endpoint to get all the `Actions` of a Service.
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Authorisation
+          description: Firebase User JWT
+          required: true
+components:
+  schemas: {}

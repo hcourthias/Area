@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "area",
+    "slug": "area",
+    "scheme": "area",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": ["ios", "android", "web"],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.area.area",
+      "config": {
+        "googleMapsApiKey": "AIzaSyBKlsyR-RMol64K6ciaW_35_iL1243dxsw",
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.367765098795-oj72gj0p2a9iel8bf7ruajesgsaclvdr"
+        }
+      }
+    },
+    "android": {
+      "package": "com.area.area",
+      "googleServicesFile": "./google-services.json"
+    },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#000"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+    "name": "server",
+    "version": "0.0.1",
+    "description": "Booster-TS Project",
+    "main": "dist/app.js",
+    "scripts": {
+        "build": "tsc",
+        "start": "node .",
+        "serve": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/app.ts",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "test:lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+        "test:func": "jest -c tests/jest.config.js"
+    },
+    "dependencies": {
+        "@booster-ts/core": "^0.2.2",
+        "@booster-ts/error-module": "^0.2.1",
+        "@booster-ts/express-module": "0.0.1",
+        "@octokit/rest": "^17.0.0",
+        "asana": "^0.18.0",
+        "express": "^4.17.1",
+        "firebase-admin": "^8.9.2",
+        "http-proxy-middleware": "^1.0.0",
+        "node-cron": "^2.0.3",
+        "nodemailer": "^6.4.3",
+        "superagent": "5.2.2",
+        "tsconfig-paths": "^3.9.0"
+    },
+    "devDependencies": {
+        "@types/asana": "^0.17.0",
+        "@types/express": "^4.17.2",
+        "@types/http-proxy-middleware": "^0.19.3",
+        "@types/jest": "^25.1.2",
+        "@types/node": "^13.7.4",
+        "@types/node-cron": "^2.0.2",
+        "@types/nodemailer": "^6.4.0",
+        "@types/superagent": "^4.1.7",
+        "@typescript-eslint/eslint-plugin": "^2.19.0",
+        "@typescript-eslint/parser": "^2.19.0",
+        "eslint": "^6.8.0",
+        "firebase": "^7.9.1",
+        "jest": "^25.1.0",
+        "nodemon": "^2.0.2",
+        "ts-jest": "^25.2.0",
+        "ts-node": "^8.6.2",
+        "typescript": "^3.7.3"
+    },
+    "keywords": [],
+    "author": "Booster-TS",
+    "booster": {
+        "default-creator": "1.0.0",
+        "error-module": "errorCode.config.json"
+    }
+}

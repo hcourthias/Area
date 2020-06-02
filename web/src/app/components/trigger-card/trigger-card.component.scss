@@ -1,0 +1,51 @@
+.container {
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.text-card {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white !important;
+    background-position: center center;
+}
+
+.card {
+    border-radius: 0.9em;
+    box-shadow: 0 1.5px 6px 0 rgba(0,0,0,0.24);
+    background-color: inherit;
+    width: 10em;
+    height: 10em;
+    cursor: pointer;
+    color: white;
+}
+
+.icon {
+    width: 2.81em !important;
+    height: 2.81em !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.title {
+    font-size: 4em;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #000000;
+}
+
+.sub-title {
+    font-size: 1em;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #332e2e;
+}

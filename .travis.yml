@@ -1,0 +1,43 @@
+language: node_js
+
+services:
+  - docker
+
+node_js:
+  - node
+
+cache: npm
+
+env:
+  - CI=true
+
+jobs:
+  include:
+    - stage: Server Tests
+      node_js: node
+      script:
+            - cd server/
+            - npm ci
+            - npm run test:lint
+            - npm run build
+            - npm run test:func -- --forceExit
+
+    - stage: Server Deploy
+      node_js: node
+      if: branch = edge AND type != pull_request
+      script:
+        - npm i -g caprover
+        - cd server/
+        - touch deploy.tar
+        - tar --exclude deploy.tar -czf deploy.tar .
+        - caprover deploy -h $HOST -p $HOST_PASSWORD -a area -t ./deploy.tar
+
+    - stage: Server Deploy
+      node_js: node
+      if: branch = master AND type != pull_request
+      script:
+        - npm i -g caprover
+        - cd server/
+        - touch deploy.tar
+        - tar --exclude deploy.tar -czf deploy.tar .
+        - caprover deploy -h $HOST -p $HOST_PASSWORD -a area -t ./deploy.tar

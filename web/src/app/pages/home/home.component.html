@@ -1,0 +1,19 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+
+    <p class="title">Your world works better together</p>
+    <div *ngIf="services.length === 0">
+        <p class="sub-title">No area yet :(</p>
+    </div>
+</div>
+<div *ngIf="services.length > 0">
+    <div style="height: 650px; overflow: auto; border-color: black;">
+        <li *ngFor="let service of services; index as i; trackBy: trackByFn">
+            <div fxLayout="column" fxLayoutAlign="start center" style="margin-bottom: 20px;">
+                <app-service-card
+                    [service]="service"
+                    [cardId]="i"
+                ></app-service-card>
+            </div>
+        </li>
+    </div>
+</div>

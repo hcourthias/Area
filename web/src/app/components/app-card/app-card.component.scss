@@ -1,0 +1,63 @@
+.container {
+    display: inline-flex;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.text-card {
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white !important;
+    background-position: center center;
+}
+
+.card {
+    border-radius: 0.9em;
+    box-shadow: 0 1.5px 6px 0 rgba(0,0,0,0.24);
+    background-color: black;
+    width: 18em;
+    height: 15em;
+    cursor: pointer;
+}
+
+.icon {
+    width: 2.81em !important;
+    height: 2.81em !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.title {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    font-size: 25px;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0;
+    color: white;
+}
+
+.author {
+    color: rgba(255,255,255,0.6);
+}
+
+.downloads {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #bebebe;
+    font-weight: 900;
+}
+
+.sub-title {
+    font-size: 3em;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #332e2e;
+}

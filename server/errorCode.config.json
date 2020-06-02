@@ -1,0 +1,30 @@
+{
+    "00": {
+        "why": "No Error",
+        "httpResponse": 200
+    },
+    "01": {
+        "why": "Missing/Incorrect Parameter",
+        "httpResponse": 400
+    },
+    "02": {
+        "why": "Wrong Credentials",
+        "httpResponse": 401
+    },
+    "03": {
+        "why": "Account Already Exists",
+        "httpResponse": 200
+    },
+    "04": {
+        "why": "Resource Doesn't Exist",
+        "httpResponse": 404
+    },
+    "05": {
+        "why": "Resource Already Exists",
+        "httpResponse": 409
+    },
+    "99": {
+        "why": "Server Error",
+        "httpResponse": 500
+    }
+}

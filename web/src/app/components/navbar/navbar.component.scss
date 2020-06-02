@@ -1,0 +1,57 @@
+.navbar-title {
+    // width: 116;
+    // height: 57;
+    // font-size: 42;
+    // font-weight: 900;
+    // font-size: 2em !important;//xx-large;
+    font-weight: 900 !important;
+    font-size: 2.7em !important;
+    // height: 1.25em;
+    font-style: normal;
+    letter-spacing: 0;
+    text-align: center;
+    color: #000000;
+};
+
+.blue {
+    background-color: #2468ff !important;
+}
+
+.white-logo {
+    color: white !important;
+}
+
+.avatar {
+    width: 2.81em !important;
+    height: 2.81em !important;
+    border-radius: 6.5em;
+    border: 0.1em solid
+    #fff;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.sign-in {
+    font-size: 18;
+    font-weight: 900;
+    font-style: normal;
+    letter-spacing: 0;
+    color: #000000;
+};
+
+.btn-no-bg {
+    color: white !important;
+}
+
+.btn {
+    height: 2.5rem !important;
+    width: 8.5rem !important;
+    font-weight: 900 !important;
+    font-size: 130% !important;
+}

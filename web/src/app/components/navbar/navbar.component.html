@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light" [class.blue]="router.url.indexOf('service') !== -1">
+    <a routerLink="/" class="navbar-brand navbar-title" [class.white-logo]="router.url.indexOf('service') !== -1" href="#"><b>AREA</b></a>
+
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li *ngIf="auth.isAuthenticated" class="nav-item active">
+                <button routerLink="/home" type="button" [className]="router.url.indexOf('service') !== -1 ? 'btn sign-in btn-no-bg' : 'btn sign-in btn-white'"><b>Home</b></button>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li *ngIf="!auth.isAuthenticated" class="nav-item active">
+                <button routerLink="/login" type="button" class="btn sign-in btn-white"><b>Sign in</b></button>
+            </li>
+            <li *ngIf="!auth.isAuthenticated" class="nav-item">
+                <button routerLink="/register" type="button" class="btn btn-black"><b>Sign up</b></button>
+            </li>
+            <li *ngIf="auth.isAuthenticated" class="nav-item dropdown">
+                <div ngbDropdown class="d-inline-block">
+                    <a ngbDropdownToggle href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img
+                        class="avatar"
+                        src="../../../assets/icons/avatar.svg"
+                        alt="Avatar icon"
+                         />
+                    </a>
+                    <div ngbDropdownMenu>
+                      <button (click)="disconnect()" ngbDropdownItem>Sign out</button>
+                    </div>
+                </div>
+            </li>
+            <li *ngIf="auth.isAuthenticated" class="nav-item">
+                <button routerLink="/create" type="button" [className]="router.url.indexOf('service') !== -1 ? 'btn btn-white' : 'btn btn-black'"><b>Create</b></button>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,20 @@
+{
+    "/actions/": {
+        "target": "https://area.cap.famille4.com/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/reactions/": {
+        "target": "https://area.cap.famille4.com/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    },
+    "/subscribe/": {
+        "target": "https://area.cap.famille4.com/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="container">
+        <div [ngStyle]="{'background': color }">
+            <p class="title">{{title}}</p>
+            <p class="author">
+                By {{author}}
+            </p>
+            <p class="downloads">
+                <b>
+                <svg height="18" viewBox="0 0 15 18" width="15" xmlns="http://www.w3.org/2000/svg"><path d="m11.884 11.499a2.96 2.96 0 0 1 1.116 2.337v.164a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2-2v-.164c0-.923.407-1.775 1.117-2.338.86-.683 2.32-1.498 4.383-1.498s3.523.815 4.384 1.499zm-4.384-2.499a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" fill="#fff"></path></svg>
+                {{downloads}}
+            </b>
+            </p>
+        </div>
+    </div>
+</div>

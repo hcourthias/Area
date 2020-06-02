@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="container">
+        <div ngbDropdown class="d-inline-block settings dropdown">
+            <a ngbDropdownToggle href="javascript:void(0)" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cog" style="color: black;"></i>
+            </a>
+            <div ngbDropdownMenu>
+              <button (click)="delete()" ngbDropdownItem>Delete</button>
+            </div>
+        </div>
+        <p class="text-card sub-title">
+            {{ifText}}{{thenText}}
+        </p>
+        <p class="author">
+            By {{author}}
+        </p>
+    </div>
+</div>
