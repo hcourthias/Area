@@ -21,7 +21,7 @@
         "firebase-admin": "^8.9.2",
         "http-proxy-middleware": "^1.0.0",
         "node-cron": "^2.0.3",
-        "nodemailer": "^6.4.3",
+        "nodemailer": "^6.4.16",
         "superagent": "5.2.2",
         "tsconfig-paths": "^3.9.0"
     },
