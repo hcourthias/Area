@@ -23,7 +23,7 @@
         "node-cron": "^2.0.3",
         "nodemailer": "^6.4.3",
         "superagent": "5.2.2",
-        "tsconfig-paths": "^3.9.0"
+        "tsconfig-paths": "^3.10.1"
     },
     "devDependencies": {
         "@types/asana": "^0.17.0",
